@@ -1,0 +1,19 @@
+.drawer {
+    background: var(--primary-color) !important;
+    /* border: 1px solid; */
+}
+
+.drawer-header {
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-primary);
+}
+.drawer-header h5 {
+    color: #fff !important;
+}
+
+.drawer-header svg {
+    fill: #fff !important;
+}

@@ -1,0 +1,28 @@
+.booking {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+
+    border: 1px solid var(--border-color);
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    color: var(--fc-secondary);
+    gap: 0.2em;
+
+    font-size: 0.85em;
+}
+
+.time span {
+    display: flex;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+.time svg {
+    fill: var(--fc-secondary);
+    font-size: inherit;
+    display: flex;
+}

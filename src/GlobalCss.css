@@ -1,0 +1,116 @@
+.MuiTab-root {
+    color: var(--fc-secondary);
+}
+.Mui-selected {
+    color: var(--color-primary);
+    transition: 0.2s ease-in;
+}
+.Mui-error {
+    color: #d32f2f !important;
+}
+
+.MuiTab-root.Mui-selected {
+    color: var(--fc-strong);
+    font-weight: 500;
+}
+.MuiTabs-indicator span {
+    background-color: var(--color-primary);
+}
+
+.MuiBox-root {
+    border-color: var(--border-color);
+}
+.MuiTabs-indicator {
+    display: 'flex';
+    justify-content: 'center';
+    background-color: 'transparent';
+}
+
+.MuiTabs-indicatorSpan {
+    border-radius: 10;
+}
+/* F O R M S */
+.MuiFormLabel-root {
+    color: var(--fc-secondary);
+}
+.MuiFormLabel-root.Mui-focused {
+    color: var(--color-primary);
+}
+
+.MuiOutlinedInput-root {
+    border-radius: 10px;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    /* border-color: var(--input-border-color); */
+    border-color: var(--fc-primary);
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--color-primary);
+}
+.MuiOutlinedInput-notchedOutline {
+    border-color: var(--border-color);
+    outline: none !important;
+}
+
+.MuiInputAdornment-outlined p {
+    color: var(--fc-secondary);
+}
+.MuiOutlinedInput-root {
+    color: var(--fc-primary);
+}
+.MuiOutlinedInput-root input {
+    color: var(--fc-primary);
+}
+
+.MuiMenuItem-root {
+    color: var(--fc-primary);
+    padding: 1em;
+}
+
+.MuiMenuItem-root.Mui-selected {
+    background-color: var(--bg-tertiary-color);
+    color: var(--fc-primary);
+}
+.MuiRadio-root.Mui-checked {
+    color: var(--color-primary);
+}
+.MuiRadio-root {
+    color: var(--color-primary);
+}
+
+/* P A P E R  */
+
+.MuiPaper-root {
+    background-color: var(--bg-primary-color);
+}
+
+/* T A B L E */
+
+.MuiTableCell-root {
+    border-bottom: 0 !important;
+}
+
+.MuiTablePagination-select option {
+    background-color: var(--bg-secondary-color) !important;
+}
+.MuiSwitch-root .MuiSwitch-track {
+    border-radius: 13px;
+    background-color: var(--bg-tertiary-color);
+    /* background-color: #e9e9ea; */
+}
+.MuiSwitch-root .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+    background-color: var(--color-primary);
+    opacity: 1;
+    border: 0;
+}
+.MuiSvgIcon-root {
+    fill: var(--fc-primary);
+}
+.Mui-disabled svg {
+    fill: var(--ic-disabled-fill);
+}
+.MuiRadio-root.Mui-checked svg {
+    fill: var(--color-primary);
+}

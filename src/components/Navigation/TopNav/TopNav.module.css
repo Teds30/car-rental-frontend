@@ -1,0 +1,18 @@
+.topnav {
+    background-color: var(--bg-primary-color);
+    min-height: 64px;
+    width: 100%;
+
+    /* box-shadow: rgb(100 116 139 / 12%) 0px 1px 4px; */
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.col {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    padding: 0 18px;
+}

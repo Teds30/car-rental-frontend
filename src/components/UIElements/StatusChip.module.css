@@ -1,0 +1,54 @@
+.status {
+    display: inline-flex;
+    padding: 4px 8px;
+    border-radius: 18px;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.pending {
+    /* background-color: #e6f1fd;
+    color: #0054b1; */
+    background-color: rgba(187, 85, 0, 0.1);
+    color: #bb5500;
+    fill: #bb5500;
+}
+
+.active {
+    background-color: rgb(0, 84, 177, 0.1);
+    color: #0054b1;
+    fill: #0054b1;
+}
+.completed {
+    /* background-color: #ebf9f1;
+    color: #1f9254; */
+    background-color: rgb(31, 146, 84, 0.1);
+    color: #1f9254;
+    fill: #1f9254;
+}
+.canceled {
+    /* background-color: #fbe7e8;
+    color: #8d0b0e; */
+    background-color: rgb(141, 11, 14, 0.1);
+    color: #8d0b0e;
+    fill: #8d0b0e;
+}
+.rejected {
+    background-color: rgb(141, 11, 14, 0.1);
+    color: #8d0b0e;
+    fill: #8d0b0e;
+}
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5em;
+    fill: inherit;
+}
+
+.icon svg {
+    fill: inherit;
+    font-size: 12px;
+}

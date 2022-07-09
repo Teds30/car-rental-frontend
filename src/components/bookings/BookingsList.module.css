@@ -1,0 +1,9 @@
+.actions {
+    display: flex;
+    /* border: 1px solid; */
+    justify-content: flex-end;
+    /* background-color: var(--bg-secondary-color); */
+    /* border: 1px solid var(--border-color); */
+
+    padding: 0.5em;
+}

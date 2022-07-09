@@ -1,0 +1,11 @@
+.bookings {
+    width: 100%;
+    background-color: var(--bg-primary-color);
+}
+
+.bookings header {
+    margin-top: 3em;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+}

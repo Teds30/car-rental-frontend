@@ -1,0 +1,10 @@
+.mng_cars {
+    width: 100%;
+}
+
+.mng_cars header {
+    margin-top: 3em;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+}
