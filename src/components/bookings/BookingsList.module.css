@@ -1,5 +1,6 @@
 .actions {
     display: flex;
+    gap: 1em;
     /* border: 1px solid; */
     justify-content: flex-end;
     /* background-color: var(--bg-secondary-color); */

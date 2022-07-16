@@ -20,7 +20,7 @@ import IOSSwitch from '../../UIElements/Input/Switch/IOSSwitch'
 import PrimaryButton from '../../UIElements/Button/PrimaryButton'
 import OutlinedButton from '../../UIElements/Button/OutlinedButton'
 
-import getCarTypes from '../../../dummy_data/car_types'
+import getCarTypes from '../../../data/car_types'
 
 import useCarManager from '../../../hooks/cars-hook'
 
