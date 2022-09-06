@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import {
     BrowserRouter as Router,
     Route,
@@ -9,23 +9,26 @@ import {
 import { ThemeContext } from './context/ThemeContext'
 
 import styled, { ThemeProvider } from 'styled-components'
+import StyledEngineProvider from '@mui/material/StyledEngineProvider'
+
+import './GlobalCss.css'
 
 import { lightTheme, darkTheme, GlobalStyles } from './themes/themes'
 import useTheme from './hooks/theme-hook'
 
 import BookingsProvider from './context/BookingsProvider'
 
-import Dashboard from './page/dashboard/Dashboard'
-import PageNotFound from './page/errors/PageNotFound'
-import Overview from './page/dashboard/overview/Overview'
-import Cars from './page/dashboard/cars/Cars'
-import Centers from './page/dashboard/centers/Centers'
-import ManageCars from './page/dashboard/manage_cars/ManageCars'
-import AddCar from './components/manage_cars/add_new_car/AddCar'
-import Bookings from './page/dashboard/bookings/Bookings'
+// import Dashboard from './page/dashboard/Dashboard'
+// import PageNotFound from './page/errors/PageNotFound'
+// import Overview from './page/dashboard/overview/Overview'
+// import Cars from './page/dashboard/cars/Cars'
+// import Centers from './page/dashboard/centers/Centers'
+// import ManageCars from './page/dashboard/manage_cars/ManageCars'
+// import AddCar from './components/manage_cars/add_new_car/AddCar'
+// import Bookings from './page/dashboard/bookings/Bookings'
 
-import Login from './page/auth/Login'
-import Register from './page/auth/Register'
+// import Login from './page/auth/Login'
+// import Register from './page/auth/Register'
 
 import './App.css'
 
@@ -43,7 +46,24 @@ export default function App() {
 
     let routes
 
-    // console.log(token)   
+    const Dashboard = React.lazy(() => import('./page/dashboard/Dashboard'))
+    const PageNotFound = React.lazy(() => import('./page/errors/PageNotFound'))
+    const Overview = React.lazy(() =>
+        import('./page/dashboard/overview/Overview')
+    )
+    const Cars = React.lazy(() => import('./page/dashboard/cars/Cars'))
+    const Centers = React.lazy(() => import('./page/dashboard/centers/Centers'))
+    const ManageCars = React.lazy(() =>
+        import('./page/dashboard/manage_cars/ManageCars')
+    )
+    const AddCar = React.lazy(() =>
+        import('./components/manage_cars/add_new_car/AddCar')
+    )
+    const Bookings = React.lazy(() =>
+        import('./page/dashboard/bookings/Bookings')
+    )
+    const Login = React.lazy(() => import('./page/auth/Login'))
+    const Register = React.lazy(() => import('./page/auth/Register'))
 
     if (token) {
         routes = (
@@ -120,12 +140,16 @@ export default function App() {
                 <ThemeProvider
                     theme={theme === 'light' ? lightTheme : darkTheme}
                 >
+                <StyledEngineProvider injectFirst>
                     <GlobalStyles />
                     <StyledApp>
                         <Router>
-                            <main>{routes}</main>
+                            <main>
+                                <Suspense fallback={<></>}>{routes}</Suspense>
+                            </main>
                         </Router>
                     </StyledApp>
+            </StyledEngineProvider>
                 </ThemeProvider>
             </ThemeContext.Provider>
         </AuthContext.Provider>
