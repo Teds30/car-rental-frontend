@@ -47,7 +47,7 @@ const CollapsibleRow = (props) => {
 
             notify('Car successfully removed.', 'success')
         } catch (err) {
-            notify('Failed to remove the car.', 'error')
+            notify(err, 'error')
         }
     }
 
@@ -65,8 +65,8 @@ const CollapsibleRow = (props) => {
             closeHandler()
             notify('Updated Successfully.', 'success')
         } catch (err) {
-            notify('Failed to update the car.', 'error')
-            console.log(EvalError)
+            notify(err, 'error')
+            // console.log(err)
         }
     }
 

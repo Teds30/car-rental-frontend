@@ -3,6 +3,11 @@ import React, { useContext, useState, useEffect, useCallback } from 'react'
 import BookingContext from '../../context/BookingContext'
 import BorderlessButton from '../UIElements/Button/BorderlessButton'
 
+import FormControl from '@mui/material/FormControl'
+import InputLabel from '@mui/material/InputLabel'
+import Select from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem'
+
 import RefreshIcon from '@mui/icons-material/Refresh'
 
 import Booking from './Booking'
@@ -16,6 +21,7 @@ const BookingsList = (props) => {
     let loadedBookings = bookingCtx.bookings
 
     const [bookings, setBookings] = useState([])
+    const [sortValue, setSortValue] = useState(0)
 
     const fetcch = useCallback(() => {
         if (status) {
@@ -32,8 +38,16 @@ const BookingsList = (props) => {
         fetcch()
     }, [fetcch])
 
+    let sortedbookings = bookings.sort((a, b) => {
+        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+    })
+
+    if (sortValue === 0) {
+        sortedbookings.reverse()
+    }
+
     const bookingsComponent =
-        bookings.map((booking) => (
+        sortedbookings.map((booking) => (
             <Booking
                 key={booking._id}
                 booking={booking}
@@ -45,6 +59,10 @@ const BookingsList = (props) => {
         bookingCtx.fetchData()
     }
 
+    const handleSort = (e) => {
+        setSortValue(e.target.value)
+    }
+
     return (
         <React.Fragment>
             <div className={styles['actions']}>
@@ -54,6 +72,18 @@ const BookingsList = (props) => {
                 >
                     Refresh
                 </BorderlessButton>
+                <FormControl>
+                    <InputLabel htmlFor="car-type-select">Sort</InputLabel>
+                    <Select
+                        label="Type"
+                        id="car-type-select"
+                        value={sortValue}
+                        onChange={handleSort}
+                    >
+                        <MenuItem value={0}>Newest</MenuItem>
+                        <MenuItem value={1}>Oldest</MenuItem>
+                    </Select>
+                </FormControl>
             </div>
             <div className={styles['bookings_list']}>{bookingsComponent}</div>
         </React.Fragment>

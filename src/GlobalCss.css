@@ -31,59 +31,60 @@
 }
 /* F O R M S */
 .MuiFormLabel-root {
-    color: var(--fc-secondary);
+    color: var(--fc-secondary) !important;
 }
 .MuiFormLabel-root.Mui-focused {
-    color: var(--color-primary);
+    color: var(--color-primary) !important;
 }
 
 .MuiOutlinedInput-root {
-    border-radius: 10px;
+    border-radius: 10px !important;
 }
 
 .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
     /* border-color: var(--input-border-color); */
-    border-color: var(--fc-primary);
+    border-color: var(--fc-primary) !important;
 }
 
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: var(--color-primary);
+    border-color: var(--color-primary) !important;
 }
 .MuiOutlinedInput-notchedOutline {
-    border-color: var(--border-color);
+    border-color: var(--border-color) !important;
     outline: none !important;
 }
 
 .MuiInputAdornment-outlined p {
-    color: var(--fc-secondary);
+    color: var(--fc-secondary) !important;
 }
 .MuiOutlinedInput-root {
-    color: var(--fc-primary);
+    color: var(--fc-primary) !important;
 }
 .MuiOutlinedInput-root input {
-    color: var(--fc-primary);
+    color: var(--fc-primary) !important;
 }
-
 .MuiMenuItem-root {
-    color: var(--fc-primary);
+    color: var(--fc-primary) !important;
     padding: 1em;
 }
-
+.MuiFormLabel-root-MuiInputLabel-root label {
+    color: var(--fc-primary) !important;
+}
 .MuiMenuItem-root.Mui-selected {
     background-color: var(--bg-tertiary-color);
     color: var(--fc-primary);
 }
 .MuiRadio-root.Mui-checked {
-    color: var(--color-primary);
+    color: var(--color-primary) !important;
 }
 .MuiRadio-root {
-    color: var(--color-primary);
+    color: var(--color-primary) !important;
 }
 
 /* P A P E R  */
 
 .MuiPaper-root {
-    background-color: var(--bg-primary-color);
+    background-color: var(--bg-primary-color) !important;
 }
 
 /* T A B L E */
@@ -101,7 +102,7 @@
     /* background-color: #e9e9ea; */
 }
 .MuiSwitch-root .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
-    background-color: var(--color-primary);
+    background-color: var(--color-primary) !important;
     opacity: 1;
     border: 0;
 }

@@ -14,19 +14,16 @@ const BookingsProvider = ({ children }) => {
 
     const [bookings, dispatch] = useReducer(BookingsReducer, [])
 
-    const fetchData = useCallback(
-        async () => {
-            try {
-                const response = await fetchBookings()
+    const fetchData = useCallback(async () => {
+        try {
+            const response = await fetchBookings()
 
-                dispatch({ type: 'FILL', data: response })
-            } catch (err) {
-                console.log(err)
-                throw err
-            }
-        },
-        [fetchBookings]
-    )
+            dispatch({ type: 'FILL', data: response })
+
+        } catch (err) {
+            throw err
+        }
+    }, [fetchBookings])
 
     useEffect(() => {
         fetchData()

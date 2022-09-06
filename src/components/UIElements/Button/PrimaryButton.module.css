@@ -10,7 +10,7 @@
     transition: 0.2s ease-in;
     font-family: inherit;
 
-    max-width: max-content;
+    /* max-width: max-content; */
     height: max-content;
 
     display: flex;
@@ -28,6 +28,7 @@
 .btn:disabled {
     /* background-color: var(--btn-primary-bg__disabled); */
     background-color: rgba(var(--color-primary-rgb), 0.6);
+    /* color: rgba(255, 255, 255, 0.7); */
     cursor: not-allowed;
 }
 

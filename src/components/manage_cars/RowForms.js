@@ -23,7 +23,7 @@ import BorderlessButton from '../UIElements/Button/BorderlessButton'
 import OutlinedButton from '../UIElements/Button/OutlinedButton'
 import LoadingSpinner from '../UIElements/LoadingSpinner'
 
-import getCarTypes from '../../dummy_data/car_types'
+import getCarTypes from '../../data/car_types'
 
 import styles from './RowForms.module.css'
 

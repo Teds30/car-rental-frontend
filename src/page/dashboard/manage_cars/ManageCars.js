@@ -15,7 +15,7 @@ import styles from './ManageCars.module.css'
 
 import PrimaryButton from '../../../components/UIElements/Button/PrimaryButton'
 import AddIcon from '@mui/icons-material/Add'
-import getCarTypes from '../../../dummy_data/car_types'
+import getCarTypes from '../../../data/car_types'
 
 const ManageCars = () => {
     const navigate = useNavigate()

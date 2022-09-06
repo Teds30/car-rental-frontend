@@ -24,7 +24,13 @@ import ManageCars from './page/dashboard/manage_cars/ManageCars'
 import AddCar from './components/manage_cars/add_new_car/AddCar'
 import Bookings from './page/dashboard/bookings/Bookings'
 
+import Login from './page/auth/Login'
+import Register from './page/auth/Register'
+
 import './App.css'
+
+import { useAuth } from './hooks/auth-hook'
+import { AuthContext } from './context/AuthContext'
 
 const StyledApp = styled.div`
     color: ${(props) => props.theme.fontColor};
@@ -33,52 +39,95 @@ const StyledApp = styled.div`
 export default function App() {
     const { theme, themeToggler } = useTheme()
 
-    let routes = (
-        <Routes>
-            <Route
-                path="/"
-                element={<Navigate replace to="/dashboard/overview" />}
-            />
-            <Route
-                path="/dashboard"
-                element={<Navigate replace to="/dashboard/overview" />}
-            />
-            <Route path="/dashboard/" element={<Dashboard />}>
-                <Route path="/dashboard/overview" element={<Overview />} />
-                <Route path="/dashboard/cars" element={<Cars />} />
-                <Route path="/dashboard/centers" element={<Centers />} />
-                <Route path="/dashboard/manage_cars" element={<ManageCars />} />
+    const { userId, token, login, logout } = useAuth()
+
+    let routes
+
+    // console.log(token)   
+
+    if (token) {
+        routes = (
+            <Routes>
                 <Route
-                    path="/dashboard/bookings"
-                    element={
-                        <BookingsProvider>
-                            <Bookings />
-                        </BookingsProvider>
-                    }
+                    path="/"
+                    element={<Navigate replace to="/dashboard/overview" />}
                 />
 
                 <Route
-                    path="/dashboard/manage_cars/add_new_car"
-                    element={<AddCar />}
+                    path="/auth/login"
+                    element={<Navigate replace to="/dashboard/overview" />}
                 />
-            </Route>
+                <Route
+                    path="/auth/signup"
+                    element={<Navigate replace to="/dashboard/overview" />}
+                />
+                <Route
+                    path="/dashboard"
+                    element={<Navigate replace to="/dashboard/overview" />}
+                />
+                <Route path="/dashboard/" element={<Dashboard />}>
+                    <Route path="/dashboard/overview" element={<Overview />} />
+                    <Route path="/dashboard/cars" element={<Cars />} />
+                    <Route path="/dashboard/centers" element={<Centers />} />
+                    <Route
+                        path="/dashboard/manage_cars"
+                        element={<ManageCars />}
+                    />
+                    <Route
+                        path="/dashboard/bookings"
+                        element={
+                            <BookingsProvider>
+                                <Bookings />
+                            </BookingsProvider>
+                        }
+                    />
 
-            <Route path="*" element={<PageNotFound />} />
+                    <Route
+                        path="/dashboard/manage_cars/add_new_car"
+                        element={<AddCar />}
+                    />
+                </Route>
 
-            {/* <PageNotFound /> */}
-        </Routes>
-    )
+                <Route path="*" element={<PageNotFound />} />
 
+                {/* <PageNotFound /> */}
+            </Routes>
+        )
+    } else {
+        routes = (
+            <Routes>
+                <Route path="/auth/login" element={<Login />} />
+                <Route path="/auth/signup" element={<Register />} />
+
+                <Route
+                    path="*"
+                    element={<Navigate replace to="/auth/login" />}
+                />
+            </Routes>
+        )
+    }
     return (
-        <ThemeContext.Provider value={{ theme, themeToggler }}>
-            <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-                <GlobalStyles />
-                <StyledApp>
-                    <Router>
-                        <main>{routes}</main>
-                    </Router>
-                </StyledApp>
-            </ThemeProvider>
-        </ThemeContext.Provider>
+        <AuthContext.Provider
+            value={{
+                isLoggedIn: !!token,
+                token: token,
+                userId: userId,
+                login: login,
+                logout: logout,
+            }}
+        >
+            <ThemeContext.Provider value={{ theme, themeToggler }}>
+                <ThemeProvider
+                    theme={theme === 'light' ? lightTheme : darkTheme}
+                >
+                    <GlobalStyles />
+                    <StyledApp>
+                        <Router>
+                            <main>{routes}</main>
+                        </Router>
+                    </StyledApp>
+                </ThemeProvider>
+            </ThemeContext.Provider>
+        </AuthContext.Provider>
     )
 }

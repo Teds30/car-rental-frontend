@@ -14,6 +14,7 @@ const PrimaryButton = (props) => {
         isLoading,
         loadingText,
         disabled = false,
+        width,
     } = props
 
     if (!props) {
@@ -31,6 +32,7 @@ const PrimaryButton = (props) => {
             className={`${styles.btn} ${btnTypeStyle}`}
             onClick={onClick}
             disabled={disabled}
+            style={{ width }}
         >
             {leftIcon && <div className={styles.icon}>{leftIcon}</div>}
             <span>{!isLoading && children}</span>
