@@ -19,7 +19,7 @@ const CarsList = (props) => {
 
                 setLoadedCars(data)
             } catch (err) {
-                console.log(err)
+                throw err
             }
         }
 
