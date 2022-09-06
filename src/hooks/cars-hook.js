@@ -1,71 +1,75 @@
-import { useCallback } from 'react'
+import { useCallback, useContext } from 'react'
 
 import useHttp from './http-hook'
+import { AuthContext } from '../context/AuthContext'
 
 const useCarManager = () => {
     const { sendRequest, isLoading } = useHttp()
+    const authCtx = useContext(AuthContext)
 
     const addCar = useCallback(
         async (data) => {
             try {
                 await sendRequest({
-                    url: `http://localhost:5000/api/cars/`,
+                    url: process.env.REACT_APP_BACKEND_URL + '/cars/',
                     method: 'POST',
                     body: JSON.stringify(data),
                     headers: {
                         'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + authCtx.token,
                     },
                 })
             } catch (err) {
-                console.log(err)
-                throw err
+                throw err.message
             }
         },
-        [sendRequest]
+        [sendRequest, authCtx]
     )
     const deleteCar = useCallback(
         async (id) => {
             try {
                 await sendRequest({
-                    url: `http://localhost:5000/api/cars/${id}`,
+                    url: process.env.REACT_APP_BACKEND_URL + `/cars/${id}`,
                     method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + authCtx.token,
+                    },
                 })
             } catch (err) {
-                console.log(err)
-                throw err
+                throw err.message
             }
         },
-        [sendRequest]
+        [sendRequest, authCtx]
     )
 
     const updateCar = useCallback(
         async (id, body) => {
             try {
                 await sendRequest({
-                    url: `http://localhost:5000/api/cars/${id}`,
+                    url: process.env.REACT_APP_BACKEND_URL + `/cars/${id}`,
                     method: 'PATCH',
                     body: JSON.stringify(body),
                     headers: {
                         'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + authCtx.token,
                     },
                 })
             } catch (err) {
-                console.log(err)
-                throw err
+                throw err.message
             }
         },
-        [sendRequest]
+        [sendRequest, authCtx]
     )
 
     const fetchCars = useCallback(async () => {
         let responseData
         try {
             responseData = await sendRequest({
-                url: `http://localhost:5000/api/cars/`,
+                url: process.env.REACT_APP_BACKEND_URL + `/cars/`,
             })
         } catch (err) {
-            console.log(err)
-            throw err
+            throw err.message
         }
 
         return responseData
@@ -76,11 +80,12 @@ const useCarManager = () => {
             let responseData
             try {
                 responseData = await sendRequest({
-                    url: `http://localhost:5000/api/cars/type/${type}`,
+                    url:
+                        process.env.REACT_APP_BACKEND_URL +
+                        `/cars/type/${type}`,
                 })
             } catch (err) {
-                console.log(err)
-                throw err
+                throw err.message
             }
 
             return responseData
