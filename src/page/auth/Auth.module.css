@@ -47,17 +47,9 @@
     margin-top: 3em;
 }
 
-.textfield input {
-    color: var(--fc-primary) !important;
-}
-
-.textfield label {
-    color: var(--fc-secondary) !important;
-}
-
-input:hover {
+/* input:hover {
     outline: none !important;
-}
+} */
 
 .hl__container {
     display: flex;
