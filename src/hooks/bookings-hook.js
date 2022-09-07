@@ -1,22 +1,26 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useContext, useState } from 'react'
 import useHttp from './http-hook'
+
+import { AuthContext } from '../context/AuthContext'
 
 const useBooking = () => {
     const { sendRequest, isLoading } = useHttp()
     const [action, setAction] = useState({ type: '' })
+    const authCtx = useContext(AuthContext)
 
     const setBookingStatus = useCallback(
         async (id, status) => {
             setAction({ type: status })
             try {
                 await sendRequest({
-                    url: `http://localhost:5000/api/bookings/${id}`,
+                    url: process.env.REACT_APP_BACKEND_URL + `/bookings/${id}`,
                     method: 'PATCH',
                     body: JSON.stringify({
                         status: status,
                     }),
                     headers: {
                         'Content-Type': 'application/json',
+                        Authorization: 'Bearer ' + authCtx.token,
                     },
                 })
             } catch (err) {
@@ -24,7 +28,7 @@ const useBooking = () => {
             }
             setAction({ type: status })
         },
-        [sendRequest]
+        [sendRequest, authCtx]
     )
 
     const fetchBookings = useCallback(
@@ -33,17 +37,18 @@ const useBooking = () => {
                 let response
                 if (status) {
                     response = await sendRequest({
-                        url: `http://localhost:5000/api/bookings/status/${status}`,
+                        url:
+                            process.env.REACT_APP_BACKEND_URL +
+                            `/bookings/status/${status}`,
                     })
                     return response
                 }
 
                 response = await sendRequest({
-                    url: `http://localhost:5000/api/bookings/`,
+                    url: process.env.REACT_APP_BACKEND_URL + `/bookings/`,
                 })
                 return response
             } catch (err) {
-                console.log(err)
                 throw err
             }
         },
