@@ -100,8 +100,7 @@ const AddCar = () => {
                 resetModel()
                 resetType()
             } catch (err) {
-                notify('Failed to add car.', 'error')
-                console.log(err)
+                notify(err, 'error')
             }
         }
     }

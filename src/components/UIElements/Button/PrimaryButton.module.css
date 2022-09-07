@@ -10,7 +10,7 @@
     transition: 0.2s ease-in;
     font-family: inherit;
 
-    max-width: max-content;
+    /* max-width: max-content; */
     height: max-content;
 
     display: flex;

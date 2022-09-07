@@ -19,7 +19,7 @@ const CenterList = (props) => {
 
                 setLoadedCenters(data)
             } catch (err) {
-                console.log(err)
+                throw err
             }
         }
 

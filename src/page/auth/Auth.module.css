@@ -1,0 +1,85 @@
+.wrapper {
+    position: relative;
+}
+.wrapper .disclaimer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+    background-color: var(--bg-primary-color);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.02);
+}
+
+.container {
+    height: 100vh;
+    padding-top: 8em;
+    display: flex;
+    justify-content: center;
+
+    background-color: var(--bg-secondary-color);
+}
+.card {
+    background-color: var(--bg-primary-color);
+    border-radius: 0.5em;
+    width: 500px;
+    padding: 4em;
+    height: max-content;
+    text-align: center;
+
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.03);
+}
+
+.card p {
+    margin-top: 1em;
+}
+.card form {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.card form {
+    outline: none;
+    border: 0 !important;
+
+    margin-top: 3em;
+}
+
+/* input:hover {
+    outline: none !important;
+} */
+
+.hl__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1em;
+}
+
+.hl__container p {
+    margin: 0;
+}
+.hl {
+    height: 1px;
+    width: 100%;
+    background-color: var(--border-color);
+}
+
+.container a {
+    text-decoration: none;
+    color: var(--fc-secondary);
+}
+.container a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid var(--color-danger-tertiary);
+    color: var(--color-danger-primary);
+    border-radius: 0.5em;
+
+    padding: 0.5em;
+}

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, Outlet } from 'react-router-dom'
 
-import StyledEngineProvider from '@mui/material/StyledEngineProvider'
-import '../../GlobalCss.css'
+// import StyledEngineProvider from '@mui/material/StyledEngineProvider'
+// import '../../GlobalCss.css'
 
 import SideBar from '../../components/Navigation/SideBar/SideBar'
 import TopNav from '../../components/Navigation/TopNav/TopNav'
@@ -43,25 +43,23 @@ const Dashboard = () => {
 
     return (
         <NotifyProvider>
-            <StyledEngineProvider injectFirst>
-                <div className={styles['container1']}>
-                    <section className={styles.SideBar}>
-                        <SideBar
-                            onSelectLink={selectLinkHandler}
-                            selectedLink={link}
-                        />
-                    </section>
+            <div className={styles['container1']}>
+                <section className={styles.SideBar}>
+                    <SideBar
+                        onSelectLink={selectLinkHandler}
+                        selectedLink={link}
+                    />
+                </section>
 
-                    <div className={styles['container2']}>
-                        <section className={styles.topNav}>
-                            <TopNav />
-                        </section>
-                        <section className={styles['content']}>
-                            <Outlet />
-                        </section>
-                    </div>
+                <div className={styles['container2']}>
+                    <section className={styles.topNav}>
+                        <TopNav />
+                    </section>
+                    <section className={styles['content']}>
+                        <Outlet />
+                    </section>
                 </div>
-            </StyledEngineProvider>
+            </div>
         </NotifyProvider>
     )
 }
