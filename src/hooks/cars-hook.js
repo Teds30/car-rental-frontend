@@ -11,7 +11,7 @@ const useCarManager = () => {
         async (data) => {
             try {
                 await sendRequest({
-                    url: process.env.REACT_APP_BACKEND_URL + '/cars/',
+                    url: process.env.REACT_APP_BACKEND_URL + `/cars/`,
                     method: 'POST',
                     body: JSON.stringify(data),
                     headers: {
