@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import AuthContext from 
 
 import useHttp from './http-hook'
 
@@ -9,11 +10,12 @@ const useCarManager = () => {
         async (data) => {
             try {
                 await sendRequest({
-                    url: `http://localhost:5000/api/cars/`,
+                    url: process.env.REACT_APP_BACKEND_URL + `/cars/`,
                     method: 'POST',
                     body: JSON.stringify(data),
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' 
                     },
                 })
             } catch (err) {

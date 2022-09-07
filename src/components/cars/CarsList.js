@@ -14,7 +14,7 @@ const CarsList = (props) => {
         const fetchCars = async () => {
             try {
                 const data = await sendRequest({
-                    url: 'http://localhost:4000/api/cars',
+                    url: process.env.REACT_APP_BACKEND_URL + '/cars',
                 })
 
                 setLoadedCars(data)

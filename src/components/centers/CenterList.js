@@ -14,7 +14,7 @@ const CenterList = (props) => {
         const fetchCenters = async () => {
             try {
                 const data = await sendRequest({
-                    url: 'http://localhost:4000/api/centers',
+                    url: process.env.REACT_APP_BACKEND_URL + '/centers',
                 })
 
                 setLoadedCenters(data)
