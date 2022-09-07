@@ -10,6 +10,8 @@ import { ThemeContext } from './context/ThemeContext'
 
 import styled, { ThemeProvider } from 'styled-components'
 import StyledEngineProvider from '@mui/material/StyledEngineProvider'
+import LinearProgress from '@mui/material/LinearProgress';
+
 
 import './GlobalCss.css'
 
@@ -145,7 +147,7 @@ export default function App() {
                     <StyledApp>
                         <Router>
                             <main>
-                                <Suspense fallback={<></>}>{routes}</Suspense>
+                                <Suspense fallback={<LinearProgress />}>{routes}</Suspense>
                             </main>
                         </Router>
                     </StyledApp>
