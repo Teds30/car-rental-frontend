@@ -13,6 +13,31 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 1em;
     padding: 0 18px;
+}
+
+.action {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0.5em;
+    background-color: var(--bg-secondary-color);
+    border: 0;
+    border-radius: 50%;
+}
+.action svg {
+    width: 18px;
+    height: 18px;
+}
+
+.moon {
+    fill: rgb(61, 73, 105);
+}
+.sun {
+    fill: rgb(235, 187, 29);
 }
